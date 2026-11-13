@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Сайт-визитка Никиты Винцентовича: обо мне, достижения, контакты. Лабораторная №5 — Flexbox.">
+  <meta name="theme-color" content="#05070f">
+  <title>Никита Винцентович — сайт-визитка</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐸%3C/text%3E%3C/svg%3E">
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Стили и скрипт — отдельными файлами -->
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- Фиксированное меню -->
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#top"><span class="logo-mark">НВ</span><span class="logo-text">Никита Винцентович</span></a>
+      <nav class="nav-links" id="navLinks" aria-label="Основная навигация">
+        <a href="#about" class="nav-link active">Обо мне</a>
+        <a href="#achievements" class="nav-link">Достижения</a>
+        <a href="#contacts" class="nav-link">Контакты</a>
+      </nav>
+      <a href="#contacts" class="btn btn-primary btn-small nav-cta">Связаться</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= СЕКЦИЯ 1 · ОБО МНЕ ================= -->
+    <section class="hero" id="about">
+      <div class="hero-bg" aria-hidden="true">
+        <i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i>
+        <div class="grain"></div>
+      </div>
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <p class="overline reveal" style="--i:0">// студент · frontend-разработчик</p>
+          <h1 class="reveal" style="--i:1">Привет! Я <span class="grad">Никита</span>.<br>Собираю интерфейсы, которые работают.</h1>
+          <p class="lead reveal" style="--i:2">Студент 3-го курса Академии управления при Президенте Республики Беларусь, специальность «Управление информационными ресурсами». Верстаю на HTML и CSS, пишу ботов на Python, оживляю страницы на JavaScript — и люблю, когда всё адаптивно.</p>
+          <div class="hero-actions reveal" style="--i:3">
+            <a class="btn btn-primary" href="#achievements">Мои достижения ↓</a>
+            <a class="btn btn-ghost" href="https://github.com/maylean" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <ul class="stats reveal" style="--i:4">
+            <li><b data-count="5">5</b><span>учебных проектов</span></li>
+            <li><b data-count="2">2</b><span>награды и сертификата</span></li>
+            <li><b data-count="24">24</b><span>уровня Flexbox Froggy</span></li>
+          </ul>
+        </div>
+        <div class="hero-card reveal" style="--i:2">
+          <div class="code-card" id="codeCard">
+            <div class="code-head"><i></i><i></i><i></i><span>about-me.css</span></div>
+            <pre><code><span class="c-com">/* визитка в одном селекторе */</span>
+<span class="c-sel">.nikita</span> {
+  <span class="c-prop">name</span>: <span class="c-str">"Никита Винцентович"</span>;
+  <span class="c-prop">uni</span>: <span class="c-str">"Академия управления"</span>;
+  <span class="c-prop">course</span>: <span class="c-val">3</span>;
+  <span class="c-prop">stack</span>: <span class="c-val">HTML · CSS · JS</span>;
+  <span class="c-prop">display</span>: <span class="c-val">flex</span>;
+  <span class="c-prop">justify-content</span>: <span class="c-val">space-between</span>;
+  <span class="c-com">/* между учёбой и кодом */</span>
+  <span class="c-prop">motivation</span>: <span class="c-str">100%</span>;
+}</code></pre>
+          </div>
+          <span class="float-tag t1">display: flex</span>
+          <span class="float-tag t2">@media (max-width: 760px)</span>
+          <span class="float-tag t3">position: fixed</span>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#achievements" aria-label="Листай к достижениям">↓</a>
+    </section>
+
+    <!-- ================= МОИ ДОСТИЖЕНИЯ ================= -->
+    <section class="achievements" id="achievements">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <p class="overline dark">// секция 02 · flexbox + @media</p>
+            <h2>Мои <span class="grad-dark">достижения</span></h2>
+            <p class="sec-lead">Шесть историй — от поступления в Академию до собственных проектов. Карточки сверстаны на flexbox: три в ряд на десктопе, две на планшете и колонка на телефоне.</p>
+          </div>
+          <div class="sec-badge">2024 → 2026</div>
+        </div>
+
+        <div class="cards">
+          <!-- Карточка 1 · Поступление -->
+          <article class="card reveal" style="--acc:#2a6df5; --acc-soft:#e8f0ff; --i:0">
+            <div class="card-top">
+              <div class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 4 10 5-10 5L2 9l10-5Z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v5"/></svg>
+              </div>
+              <span class="card-year">2024</span>
+            </div>
+            <h3>Поступил в Академию управления</h3>
+            <p>Стал студентом Академии управления при Президенте Республики Беларусь — прошёл на бюджет на «Управление информационными ресурсами». Средний балл аттестата 9,1, ЦТ по математике — 86.</p>
+            <div class="card-tags"><span>бюджет</span><span>УИР</span><span>ЦТ 86</span></div>
+          </article>
+
+          <!-- Карточка 2 · Хакатон МТС -->
+          <article class="card reveal" style="--acc:#e03131; --acc-soft:#fdecec; --i:1">
+            <div class="card-top">
+              <div class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>
+              </div>
+              <span class="card-year">2025</span>
+            </div>
+            <h3>Победа в хакатоне МТС</h3>
+            <p>За 48 часов с командой из четырёх человек собрали прототип сервиса умных уведомлений для абонентов и взяли 1-е место среди 20 команд. Отвечал за фронтенд и защиту проекта перед жюри.</p>
+            <div class="card-tags"><span>команда</span><span>48 часов</span><span>1-е место</span></div>
+          </article>
+
+          <!-- Карточка 3 · Сертификат JavaScript -->
+          <article class="card reveal" style="--acc:#4c9a1f; --acc-soft:#eef8e2; --i:2">
+            <div class="card-top">
+              <div class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 8.5h10M7 12h5"/><circle cx="16.5" cy="16.5" r="2.5"/><path d="M15.5 18.6 15 22l1.5-1 1.5 1-.5-3.4"/></svg>
+              </div>
+              <span class="card-year">2025</span>
+            </div>
+            <h3>Сертификат по JavaScript</h3>
+            <p>Прошёл курс «Основы JavaScript» на Stepik с результатом 96 из 100. Финальный проект — интерактивный квиз с таймером, подсчётом очков и таблицей рекордов.</p>
+            <div class="card-tags"><span>Stepik</span><span>96/100</span><span>квиз</span></div>
+          </article>
+
+          <!-- Карточка 4 · Telegram-бот -->
+          <article class="card reveal" style="--acc:#0898b8; --acc-soft:#e2f6fb; --i:3">
+            <div class="card-top">
+              <div class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="10" rx="3"/><path d="M12 8V4.5"/><circle cx="12" cy="3.5" r="1"/><circle cx="9.5" cy="12.5" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="12.5" r="1" fill="currentColor" stroke="none"/><path d="M9.5 15.5h5M5 12H3M21 12h-2"/></svg>
+              </div>
+              <span class="card-year">2026</span>
+            </div>
+            <h3>Бот с расписанием для группы</h3>
+            <p>Написал на Python Telegram-бота с расписанием пар и напоминаниями о дедлайнах. Ботом пользуется вся группа — сессия с ним стала заметно спокойнее.</p>
+            <div class="card-tags"><span>Python</span><span>aiogram</span><span>25+ пользователей</span></div>
+          </article>
+
+          <!-- Карточка 5 · Flexbox Froggy -->
+          <article class="card reveal" style="--acc:#0f9d6e; --acc-soft:#e4f7ef; --i:4">
+            <div class="card-top">
+              <div class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="6.5" r="3"/><circle cx="16.5" cy="6.5" r="3"/><circle cx="7.5" cy="6.5" r="1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="6.5" r="1" fill="currentColor" stroke="none"/><path d="M4.6 9.5C4.2 10.6 4 11.8 4 13c0 4.4 3.6 7.5 8 7.5s8-3.1 8-7.5c0-1.2-.2-2.4-.6-3.5"/><path d="M9 15.5c1.8 1.2 4.2 1.2 6 0"/></svg>
+              </div>
+              <span class="card-year">2026</span>
+            </div>
+            <h3>Flexbox Froggy — 24/24</h3>
+            <p>Прошёл все 24 уровня игры про flexbox без подсказок, а потом объяснил трём одногруппникам разницу между justify-content и align-items. Лягушки довольны.</p>
+            <div class="card-tags"><span>flexbox</span><span>24 уровня</span><span>наставничество</span></div>
+          </article>
+
+          <!-- Карточка 6 · GitHub Pages -->
+          <article class="card reveal" style="--acc:#c026a9; --acc-soft:#fdeaf8; --i:5">
+            <div class="card-top">
+              <div class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+              </div>
+              <span class="card-year">2026</span>
+            </div>
+            <h3>Портфолио на GitHub Pages</h3>
+            <p>Собрал этот сайт-визитку, выложил его в репозиторий и настроил публикацию через GitHub Pages. Каждый пет-проект теперь живёт по своей ссылке с живым демо.</p>
+            <div class="card-tags"><span>Git</span><span>GitHub Pages</span><span>деплой</span></div>
+          </article>
+        </div>
+
+        <div class="sec-foot reveal">
+          <p class="mono-note">// display: flex · flex-wrap: wrap · gap: 24px · @media (max-width: 760px)</p>
+          <a class="btn btn-dark" href="https://github.com/maylean?tab=repositories" target="_blank" rel="noopener">Код проектов на GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= КОНТАКТЫ ================= -->
+    <section class="contacts" id="contacts">
+      <div class="wrap">
+        <p class="overline reveal">// секция 03 · контакты</p>
+        <h2 class="reveal" style="--i:1">Давай <span class="grad">знакомиться</span></h2>
+        <div class="contact-row">
+          <a class="contact-card reveal" style="--i:2" href="mailto:vincentbybit@gmail.com">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </span>
+            <span><small>Почта</small><b>vincentbybit@gmail.com</b></span>
+          </a>
+          <a class="contact-card reveal" style="--i:3" href="https://t.me/MayLean_jobs" target="_blank" rel="noopener">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 4-18 7 5.5 2L10 19l3-4 5 3.5L21 4Z"/><path d="M8.5 13 18 6"/></svg>
+            </span>
+            <span><small>Telegram</small><b>@MayLean_jobs</b></span>
+          </a>
+          <a class="contact-card reveal" style="--i:4" href="https://github.com/maylean" target="_blank" rel="noopener">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </span>
+            <span><small>GitHub</small><b>github.com/maylean</b></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p>© <span id="year">2026</span> Никита Винцентович · сайт-визитка</p>
+      <p class="mono-note">Лабораторная №5 · Flexbox · GitHub Pages</p>
+    </div>
+  </footer>
+
+</body>
+</html>
